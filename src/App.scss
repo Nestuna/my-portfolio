@@ -1,0 +1,11 @@
+@use 'styles/theme.scss' as theme;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: theme.$background;
+  p {
+    color: theme.$font-default;
+
+  }
+}
