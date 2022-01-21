@@ -1,11 +1,22 @@
-@use 'styles/theme.scss' as theme;
+@use './styles/theme.scss' as theme;
 
 body {
   margin: 0;
   padding: 0;
-  background-color: theme.$background;
-  p {
-    color: theme.$font-default;
+  background-color: theme.$background !important;
+}
+p {
+  color: theme.$font-default;
+}
 
-  }
+h1,h2,h3 {
+  color: theme.$secondary;
+  margin: 0 !important;
+}
+
+h1 {
+  font-size: 7rem !important;
+}
+h2 {
+  font-size: 4rem !important;
 }

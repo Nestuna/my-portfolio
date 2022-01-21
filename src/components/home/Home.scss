@@ -1,5 +1,10 @@
+@use '../../styles/theme.scss' as theme;
+
 .home-container {
     background: no-repeat;
-    height: 452px;
     width: 100%;
+}
+
+.big-titles {
+    color: theme.$secondary
 }
