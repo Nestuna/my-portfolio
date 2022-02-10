@@ -1,4 +1,13 @@
 import { Box, Flex, Spacer, Text } from "@chakra-ui/react";
+import {
+  Container,
+  Typography,
+  useTheme,
+  useMediaQuery,
+  Stack,
+  Grid,
+  Avatar,
+} from "@mui/material";
 import { ReactElement } from "react";
 import homeImage from "../../assets/images/header.png";
 import "./Home.scss";
@@ -10,45 +19,106 @@ interface Props {
 }
 
 function Home(props: Props): ReactElement {
+  const theme = useTheme();
   const { author, title, presentation } = props;
-  return (
-    <div>
-      <Flex
-            bgImage={`url(${homeImage})`}
-            h={{sm: '200px', lg: '452px'}}
-            className="home-container"
-            bgPosition="center"
-            alignItems={'center'}
-            p="2rem"
-            border="1px"
-            style={{ backgroundImage: `url(${homeImage})` }}>
-            <Flex flex={5} justifyContent={'center'}>
-              <Text
-                className="big-titles"
-                fontSize={{sm: "2rem", lg: "4rem"}}>
-                {author}
-              </Text>
-            </Flex>
-            <Spacer />
-            <Flex
-              flex={1}
-              justifyContent={'flex-end'}
-              sx={{fontWeight: '900'}}>
-                <Text
-                  fontSize={{sm: "4rem", lg: "7rem"}}
-                  py={0}
-                  className="big-titles">
-                  {title}
-                </Text>
-            </Flex>
-        </Flex>
-        <Box p={4} m={4}>
-          <Text fontSize={'xl'}>
-            { presentation }
-          </Text>
-        </Box>
-    </div>
+  const xs = theme.breakpoints.up("xs"),
+    sm = theme.breakpoints.up("sm"),
+    md = theme.breakpoints.up("md");
 
+  return (
+    <Box>
+      <Box
+          sx={{
+            bgImage: `url(${homeImage})`,
+            [xs]: {
+              mt: 55,
+              bgPosition: "bottom",
+            },
+            [sm]: {
+              mt: 65,
+              bgPosition: "bottom",
+            },
+          }}
+        >
+            <Grid container p={3}>
+              <Grid
+                container
+                item
+                xs={12} md={6}
+                sx={{
+                  justifyContent: 'center',
+                  [md]: {
+                    textAlign: "left",
+                  },
+                }}
+              >
+                <Grid item xs={6}>
+                  <Avatar
+                    sx={{
+                      m:'auto',
+                      bgcolor: theme.palette.secondary.main,
+                      width: "20vw",
+                      height: "20vw",
+                    }}
+                  ></Avatar>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{
+                    [xs]: {
+                      textAlign: "center",
+                    },
+                    [md]: {
+                      textAlign: "left",
+                    },
+                  }}
+                >
+                  <Typography
+                    color="secondary"
+                    sx={{
+                      [xs]: {
+                        typography: "h4",
+                      },
+                      [sm]: {
+                        typography: "h3",
+                      },
+                      [md]: {
+                        typography: "h2",
+                      },
+                    }}
+                  >
+                    {author}
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid item sm={12} md={6} sx={{
+                [xs]: { textAlign: 'center'},
+                [md]: { textAlign: "right" }
+              }}>
+                <Typography
+                  color="secondary.dark"
+                  sx={{
+                    [xs]: {
+                      typography: "h2",
+                    },
+                    [sm]: {
+                      typography: "h1",
+                    },
+                  }}
+                >
+                  {title}
+                </Typography>
+              </Grid>
+            </Grid>
+          </Box>
+          <Box mt={'1rem'} px={'1rem'}>
+            <Typography>
+              { presentation }
+            </Typography>
+          </Box>
+    </Box>
   );
 }
 

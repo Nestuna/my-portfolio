@@ -1,11 +1,7 @@
 @use '../../styles/theme.scss' as theme;
 
-
 .menu-list-item {
-    font-weight: 500;
-    text-decoration: none;
-    color: theme.$font-link-default;
     &:hover {
-        color: darken($color: theme.$font-link-default, $amount: 25%)
+        color: lighten($color: theme.$secondary, $amount: 10%);
     }
 }

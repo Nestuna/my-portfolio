@@ -2,6 +2,9 @@
     "author": "Nicolas Antunes",
     "title": "Full Stack Developer",
     "presentation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pellentesque nisi nisi, ac ultricies augue finibus eget. Donec tincidunt risus sapien, vitae tincidunt lacus bibendum et. Cras id libero eu nisi finibus suscipit non non lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pellentesque nisi nisi, ac ultricies augue finibus eget. Donec tincidunt risus sapien, vitae tincidunt lacus bibendum et. Cras id libero eu nisi finibus suscipit non non lorem.",
-    "skills": {},
+    "skills": [
+        "react",
+        "angular"
+    ],
     "projects": {}
 }

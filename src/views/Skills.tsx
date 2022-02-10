@@ -1,15 +1,23 @@
-import { HStack } from '@chakra-ui/react';
 import React from 'react';
 import SkillBadge from '../components/skill-badge/SkillBadge';
 
-import reactImage from "../assets/images/react.png";
-import angularImage from "../assets/images/angular.png"
+import api from '../api/content.json'
+
+const { skills } = api
+const imgBaseUrl = '../assets/images'
+const skillImagesUrls: Record<string, string> = {};
+
+for (const skill of skills) {
+  import url from imgBaseUrl + skill + 'png'
+  skillImagesUrls[skill] = url
+}
 
 function Skills(): React.ReactElement {
-  const skillsImages = {
-      'react': reactImage,
-      'angular': angularImage
-  }
+  const skillsImages = [
+    { name: 'react', url: reactImage },
+    { name: 'angular', url: angular }
+  ]
+
 
   const showBadges = () => {
       const badges: any[] = []
